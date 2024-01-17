@@ -16,7 +16,11 @@ class StudentController{
                     [sort, order]
                 ]
             })
-            res.json({data:sorting})
+            const data = {
+                message:`Sorting students by ${sort} with ${order}ending order`,
+                data: sorting,
+            };
+            res.status(200).json(data)
         }
 
         //FILTERING BY NAMA
@@ -28,7 +32,11 @@ class StudentController{
                     }
                 }
             })
-            res.json({data:filter})
+            const data = {
+                message:"Filtering students by nama",
+                data: filter,
+            };
+            res.status(200).json(data)
         }
 
         //FILTERING BY JURUSAN
@@ -40,7 +48,11 @@ class StudentController{
                     }
                 }
             })
-            res.json({data:filter})
+            const data = {
+                message:"Filtering students by jurusan",
+                data: filter,
+            };
+            res.status(200).json(data)
         }
 
         else{
@@ -50,7 +62,7 @@ class StudentController{
                 message:"Menampilkan data students",
                 data: students,
             };
-            res.json(data)
+            res.status(200).json(data)
         }
     }
 
